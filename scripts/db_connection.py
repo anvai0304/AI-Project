@@ -2,7 +2,7 @@ import os
 from sqlalchemy import create_engine, Column, Integer, String, Numeric, Date, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
-from geoalchemy2 import Geometry
+# from geoalchemy2 import Geometry
 
 # Database connection settings
 DB_USER = "postgres"
