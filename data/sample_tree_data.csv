@@ -1,0 +1,6 @@
+plot_id,species,height_meters,diameter_cm,measurement_date
+1,Douglas Fir,30.5,62,2023-05-15
+1,Western Red Cedar,28.2,55,2023-05-15
+2,Bigleaf Maple,22.8,48,2023-05-16
+2,Western Hemlock,26.7,51,2023-05-16
+3,Sitka Spruce,31.2,58,2023-05-17
