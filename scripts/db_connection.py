@@ -1,15 +1,12 @@
 import os
 from sqlalchemy import create_engine, Column, Integer, String, Numeric, Date, ForeignKey
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
-from geoalchemy2 import Geometry # type: ignore
-
+from sqlalchemy.orm import declarative_base, sessionmaker
 
 # Database connection settings
 DB_USER = "postgres"
 DB_PASSWORD = "anvai0304"  # Replace with your actual password
 DB_HOST = "localhost"
-DB_PORT = "5432"
+DB_PORT = "5433"
 DB_NAME = "forest_ecosystem"
 
 # Create the database engine
@@ -24,7 +21,8 @@ class ForestPlot(Base):
 
     id = Column(Integer, primary_key=True)
     plot_name = Column(String(100))
-    location = Column(Geometry('POINT', srid=4326))
+    latitude = Column(Numeric)
+    longitude = Column(Numeric)
     area_hectares = Column(Numeric)
 
 # Define the TreeData model
@@ -40,10 +38,10 @@ class TreeData(Base):
 
 # Create a session
 Session = sessionmaker(bind=engine)
-session = Session()
 
 # Test the connection by querying the forest_plots table
 try:
+    session = Session()
     result = session.query(ForestPlot).first()
     if result:
         print(f"Successfully connected to the database. First plot name: {result.plot_name}")
@@ -51,6 +49,7 @@ try:
         print("Successfully connected to the database, but the forest_plots table is empty.")
 except Exception as e:
     print(f"An error occurred: {e}")
+    print(f"Connection string used: postgresql://{DB_USER}:***@{DB_HOST}:{DB_PORT}/{DB_NAME}")
 finally:
     session.close()
 
