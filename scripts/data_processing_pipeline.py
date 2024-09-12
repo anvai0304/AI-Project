@@ -10,9 +10,9 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 
 # Database connection (adjust as needed)
 DB_USER = "postgres"
-DB_PASSWORD = "your_password_here"  # Replace with your actual password
+DB_PASSWORD = "anvai0304"  # Replace with your actual password
 DB_HOST = "localhost"
-DB_PORT = "5432"
+DB_PORT = "5433"
 DB_NAME = "forest_ecosystem"
 
 engine = create_engine(f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}")
